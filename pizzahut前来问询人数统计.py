@@ -14,9 +14,9 @@ def main():
     status = input('show or append ? ').lower()
     if status in ['a', 'append']:
         df1 = pd.read_excel('/Users/dengshiyu/Desktop/pizzahut.xlsx', index_col=0)
-        print('excel原文件\n',df1)
+        print('excel原文件:\n',df1)
         # start_date = datetime(2020, 3, 31)
-        yr, mon, day = input('Current Date:yyyy-mm-dd').split('-')
+        yr, mon, day = input('Current Date:yyyy-mm-dd ').split('-')
         today = datetime(int(yr), int(mon), int(day))
         # morning
         today_morning = eval(input('上午咨询数量: '))
@@ -38,7 +38,7 @@ def main():
         for i in range(len(df)):
             if ls.count(df['index'][i]) != 1:
                 for j in range(ls.count(df['index'][i]) - 1):
-                    df.drop([i], inplace=True,keep='last')
+                    df.drop([i], inplace=True)
                     ls = list(df['index'])
 
         df.index = df['index']
